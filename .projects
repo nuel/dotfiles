@@ -1,0 +1,86 @@
+# Project mgmt
+function p() {
+	# Save to recents
+	echo "p $@" > ~/.projects-recent
+
+	# Go to documents
+	d;
+
+	if [[ $# -eq 0 ]]; then
+		ls | grep -e '^[0-9]+*'
+		return
+	fi;
+
+	clear;
+
+	# If the project is active
+	if [[ ! -z "$(find *$@* -maxdepth 0 -type d 2>/dev/null)" ]]; then
+		cd *$@*
+		printf "\033[1;37m[ACTIVE]\033[1m PROJECT #${PWD##*/}\033[0m\n"
+	else
+		if [[ ! -z "$(find Archive/*$@* -maxdepth 0 -type d 2>/dev/null)"  ]]; then
+			cd Archive/*$@*
+			printf "\033[2;49m[ARCHIVED]\033[1m PROJECT #${PWD##*/}\033[0m\n"
+		else
+			printf "\033[7;37m[Project not found]\033[0m\n"
+		fi;
+	fi;
+
+	o;
+
+	printf "\n"
+}
+
+# Repeat most recent project command
+function pp() {
+	d;
+	bash -i ~/.projects-recent;
+}
+
+# List archived projects
+alias pa="d; ls Archive | grep -e '^[0-9]+*'"
+
+# List all projects
+alias pall="d; ls . Archive | sort -n | grep -e '^[0-9]+*'"
+
+# Create a new project
+function cr() {
+	d;
+	md "$(ls . Archive | grep -e '^[0-9]+*' | sed 's/_/ _/' | sort -rn | awk '{printf "%03d", $1 + 1; exit}') $*";
+	o;
+	clear;
+	printf "\033[1;37m[ACTIVE]\033[1m PROJECT #${PWD##*/}\033[0m\n";
+}
+
+# Archive a project
+function archive() {
+	if [[ $# -eq 0 ]]; then
+		printf "Please specify a project";
+		return;
+	fi;
+	p $@;
+	mv "../${PWD##*/}" ~/Documents/Archive;
+	p $@;
+}
+
+# Unarchive a project
+function unarchive() {
+	if [[ $# -eq 0 ]]; then
+		printf "Please specify a project";
+		return;
+	fi;
+	p $@;
+	mv "../${PWD##*/}" ~/Documents;
+	p $@;
+}
+
+# Today
+function today() {
+	d;
+	md "@today/$(date +%Y-%V)/$(date +%d)";
+	o;
+}
+alias t="today"
+
+# Set grep color
+GREP_COLORS='mc=01;29'
