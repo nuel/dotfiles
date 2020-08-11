@@ -2,7 +2,10 @@
 
 echo "One second... Linking dotfiles..."
 # Link the dotfiles
-ln -s ./.* ~/.
+ln -s ~/dotfiles/.aliases ~/.aliases
+ln -s ~/dotfiles/.functions ~/.functions
+ln -s ~/dotfiles/.projects ~/.projects
+ln -s ~/dotfiles/.zshenv ~/.zshenv
 
 # Ask for the administrator password upfront
 sudo -v

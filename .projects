@@ -34,7 +34,7 @@ function p() {
 # Repeat most recent project command
 function pp() {
 	d;
-	bash -i ~/.projects-recent;
+	zsh -i ~/.projects-recent;
 }
 
 # List archived projects

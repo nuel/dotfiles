@@ -96,6 +96,7 @@
 /.XcodeDefaultPerspective.mode1v3
 /.yesgraph-*
 /.z*
+!/.zshenv
 
 # Unignore Atom config
 !/.atom/config.cson
