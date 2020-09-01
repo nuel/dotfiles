@@ -17,7 +17,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # personal preference. It also creates an ssh
 # shortcut to my server.
 
-echo "Hello! Let's set things up."
+echo "hi nuel! Let's set things up."
 
 echo -e "Give this machine a name: \c "
 read machineName
