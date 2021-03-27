@@ -53,3 +53,6 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Ignore OS update
+alias ignoreupdate="defaults write com.apple.systempreferences AttentionPrefBundleIDs 0 && killall Dock"
