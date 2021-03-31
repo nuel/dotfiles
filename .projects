@@ -26,8 +26,6 @@ function p() {
 		fi;
 	fi;
 
-	o;
-
 	printf "\n"
 }
 
