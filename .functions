@@ -3,13 +3,13 @@ function md() {
 	mkdir -p "$@" && cd "$_";
 }
 
-# `a` with no arguments opens the current directory in Atom Editor, otherwise
+# `s` with no arguments opens the current directory in Sublime Text, otherwise
 # opens the given location
-function a() {
+function s() {
 	if [ $# -eq 0 ]; then
-		atom .;
+		subl .;
 	else
-		atom "$@";
+		subl "$@";
 	fi;
 }
 

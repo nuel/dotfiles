@@ -3,8 +3,8 @@ function p() {
 	# Save to recents
 	echo "p $@" > ~/.projects-recent
 
-	# Go to documents
-	d;
+	# Go to project folder
+	c; cd Projects;
 
 	if [[ $# -eq 0 ]]; then
 		ls | grep -e '^[0-9]+*'
@@ -31,50 +31,27 @@ function p() {
 
 # Repeat most recent project command
 function pp() {
-	d;
 	zsh -i ~/.projects-recent;
 }
 
 # List archived projects
-alias pa="d; ls Archive | grep -e '^[0-9]+*'"
+alias pa="c; cd Projects; ls Archive | grep -e '^[0-9]+*'"
 
 # List all projects
-alias pall="d; ls . Archive | sort -n | grep -e '^[0-9]+*'"
+alias pall="c; cd Projects; ls . Archive | sort -n | grep -e '^[0-9]+*'"
 
 # Create a new project
 function cr() {
-	d;
+	c; cd Projects;
 	md "$(ls . Archive | grep -e '^[0-9]+*' | sed 's/_/ _/' | sort -rn | awk '{printf "%03d", $1 + 1; exit}') $*";
 	o;
 	clear;
 	printf "\033[1;37m[ACTIVE]\033[1m PROJECT #${PWD##*/}\033[0m\n";
 }
 
-# Archive a project
-function archive() {
-	if [[ $# -eq 0 ]]; then
-		printf "Please specify a project";
-		return;
-	fi;
-	p $@;
-	mv "../${PWD##*/}" ~/Documents/Archive;
-	p $@;
-}
-
-# Unarchive a project
-function unarchive() {
-	if [[ $# -eq 0 ]]; then
-		printf "Please specify a project";
-		return;
-	fi;
-	p $@;
-	mv "../${PWD##*/}" ~/Documents;
-	p $@;
-}
-
 # Today
 function today() {
-	d;
+	c;
 	md "@today/$(date +%Y-%V)/$(date +%d)";
 	o;
 }
