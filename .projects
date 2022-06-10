@@ -4,7 +4,7 @@ function p() {
 	echo "p $@" > ~/.projects-recent
 
 	# Go to project folder
-	c; cd Projects;
+	d; cd Projects;
 
 	if [[ $# -eq 0 ]]; then
 		ls | grep -e '^[0-9]+*'
@@ -35,14 +35,14 @@ function pp() {
 }
 
 # List archived projects
-alias pa="c; cd Projects; ls Archive | grep -e '^[0-9]+*'"
+alias pa="d; cd Projects; ls Archive | grep -e '^[0-9]+*'"
 
 # List all projects
-alias pall="c; cd Projects; ls . Archive | sort -n | grep -e '^[0-9]+*'"
+alias pall="d; cd Projects; ls . Archive | sort -n | grep -e '^[0-9]+*'"
 
 # Create a new project
 function cr() {
-	c; cd Projects;
+	d; cd Projects;
 	md "$(ls . Archive | grep -e '^[0-9]+*' | sed 's/_/ _/' | sort -rn | awk '{printf "%03d", $1 + 1; exit}') $*";
 	o;
 	clear;
