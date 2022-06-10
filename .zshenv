@@ -4,8 +4,12 @@ for file in ~/.{aliases,functions,projects}; do
 done;
 unset file;
 
-# Add brew stuff to path
+# Add brew and port stuff to path
 export PATH=/usr/local/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+# Set editor
+export EDITOR=nano
 
 # motd
 autoload colors; colors;
