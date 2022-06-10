@@ -51,7 +51,7 @@ function cr() {
 
 # Today
 function today() {
-	c;
+	d;
 	md "@today/$(date +%Y-%V)/$(date +%d)";
 	o;
 }
