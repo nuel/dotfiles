@@ -51,6 +51,9 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
+# Python3 http.server
+alias http="python3 -m http.server 8000"
+
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
@@ -58,5 +61,5 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Ignore OS update
 alias ignoreupdate="defaults write com.apple.systempreferences AttentionPrefBundleIDs 0 && killall Dock"
 
-# Sync @txt to afp server
-alias u="unison /Users/nuel/Documents/@txt /Volumes/nuel/@txt -batch"
+# Sync Notes to Ariadne
+alias u="unison /Users/nuel/Documents/Notes /Volumes/ARIADNE/Notes -batch -fat"
