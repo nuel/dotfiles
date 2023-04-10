@@ -49,13 +49,6 @@ function cr() {
 	printf "\033[1;37m[ACTIVE]\033[1m PROJECT #${PWD##*/}\033[0m\n";
 }
 
-# Today
-function today() {
-	d;
-	md "@today/$(date +%Y-%V)/$(date +%d)";
-	o;
-}
-alias t="today"
 
 # Set grep color
 GREP_COLORS='mc=01;29'
