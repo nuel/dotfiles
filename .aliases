@@ -62,5 +62,4 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 alias ignoreupdate="defaults write com.apple.systempreferences AttentionPrefBundleIDs 0 && killall Dock"
 
 # Rsync Dragonfruit to Pumpkin
-alias backup="rsync -a /Volumes/Dragonfruit/{Archives,Photos,Projects}/ 
-/Volumes/Pumpkin/{Archives,Photos,Projects}" 
+alias backup="rsync -av --progress /Volumes/Dragonfruit/{Archives,Photos,Projects}/ /Volumes/Pumpkin/{Archives,Photos,Projects}"
