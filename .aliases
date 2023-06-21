@@ -7,8 +7,7 @@ alias .....="cd ../../../.."
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias d="cd ~/Documents"
-alias c="cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs"
-alias g="github"
+alias pw="d;cd @pw;http"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
