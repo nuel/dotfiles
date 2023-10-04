@@ -98,6 +98,9 @@
 /.z*
 !/.zshenv
 
+# Vscode config folder
+.vscode/
+
 # Unignore Atom config
 !/.atom/config.cson
 
