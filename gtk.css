@@ -1,0 +1,8 @@
+.xfce4-panel {
+  padding: 3px;
+} 
+
+.xfce4-panel .tasklist .toggle {
+  margin: 2px;
+  padding: 2px;
+}
