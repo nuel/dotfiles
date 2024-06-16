@@ -31,24 +31,23 @@ function p() {
 
 # Repeat most recent project command
 function pp() {
-	zsh -i ~/.projects-recent;
+	cat ~/.projects-recent | zsh;
 }
 
 # List archived projects
-alias pa="d; cd Projects; ls Archive | grep -e '^[0-9]+*'"
+alias pa="d; cd Projects; ls Archive | grep '^[0-9]\+'"
 
 # List all projects
-alias pall="d; cd Projects; ls . Archive | sort -n | grep -e '^[0-9]+*'"
+alias pall="d; cd Projects; ls . Archive | sort -n | grep '^[0-9]\+'"
 
 # Create a new project
 function cr() {
 	d; cd Projects;
-	md "$(ls . Archive | grep -e '^[0-9]+*' | sed 's/_/ _/' | sort -rn | awk '{printf "%03d", $1 + 1; exit}') $*";
+	md "$(ls . Archive | grep -e '^[0-9]\+' | sed 's/_/ _/' | sort -rn | awk '{printf "%03d", $1 + 1; exit}') $*";
 	o;
 	clear;
 	printf "\033[1;37m[ACTIVE]\033[1m PROJECT #${PWD##*/}\033[0m\n";
 }
-
 
 # Set grep color
 GREP_COLORS='mc=01;29'
