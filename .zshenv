@@ -4,18 +4,8 @@ for file in ~/.{aliases,functions,projects}; do
 done;
 unset file;
 
-# Add brew and port stuff to path
-export PATH=/usr/local/bin:$PATH
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:$PATH
-
 # Set editor
 export EDITOR=nano
-
-# motd
-autoload colors; colors;
-echo $fg[red];
-fortune | cowsay -f eyes;
-echo $reset_color;
 
 # history
 setopt APPEND_HISTORY
