@@ -7,7 +7,6 @@ unset file;
 # Add brew and port stuff to path
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:/opt/homebrew/bin:$PATH
-export PATH=/Users/nuel/Library/Python/3.9/bin:$PATH
 
 # Set editor
 export EDITOR=nano
