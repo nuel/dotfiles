@@ -97,6 +97,7 @@
 /.yesgraph-*
 /.z*
 !/.zshenv
+!/.zshrc
 
 # Vscode config folder
 .vscode/
